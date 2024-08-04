@@ -1,0 +1,203 @@
+.header_container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; 
+  background-color: #060606; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.logo_log {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo_box {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo_box img {
+  height: 150px; 
+  
+}
+
+.log_sign {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px; 
+}
+
+.main_menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.main_menu a,
+.main_menu .Starship {
+  margin: 0 15px;
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 768px) {
+  .header_container {
+    padding: 10px;
+  }
+
+  .logo_log {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main_menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main_menu a,
+  .main_menu .Starship {
+    margin: 5px 0;
+  }
+}
+
+
+
+.flagships_box {
+  margin-top: 250px; 
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  color: white;
+  background: black;
+  
+} 
+
+
+
+.header_container {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: absolute;
+  width: 100vw;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  justify-content:flex-start;
+
+}
+
+.logo_log {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.logo_box img {
+  background-color: black;
+  width: 200px;
+  margin: 0;
+}
+
+
+.log_sign {
+  display: flex;
+  align-self: flex-start;
+  color: white;
+  gap: 20px;
+  padding-top: 50px; 
+  text-align: right;
+}
+
+.main_menu {
+  display: flex;
+  color: white;
+  border-top: 1px white dashed;
+  border-bottom: 1px white dashed;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.flagships_box {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+} 
+
+.starship_item {
+  justify-items: center;
+  margin-bottom: 30px;
+  width: 1000px;
+  text-align: left;
+  background-color: #282626;
+  padding-left: 10px;
+
+}
+
+.starship_item:hover {
+  transform: scale(1.03);
+} 
+
+.Starship {
+  background-color: #060606;
+}
+
+.Starship:hover {
+  border: none;
+}
+
+/* Welcome page style */
+.title {
+  padding-left: 15rem;
+}
+
+.starship_details{
+  padding-top: 250px;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .table-responsive-md tbody,
+  .table-responsive-md tr {
+    display: block;
+    width: 100%;
+    
+  }
+
+  .table-responsive-md tr {
+    margin-bottom: 15px;
+  }
+
+  .table-responsive-md th,
+  .table-responsive-md td {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  .table-responsive-md th {
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    border-bottom: 2px solid black;
+  }
+
+  .table-responsive-md td {
+    padding: 10px 15px;
+  }
+}
