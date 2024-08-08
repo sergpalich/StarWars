@@ -1,22 +1,16 @@
 import "./App.css";
 import Layout from "./components/Layout";
 import Starships from "./components/Starship";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import SinglePage from "./components/Singlepage";
 import Welcomepage from "./components/Welcomepage";
-
-
-/* const StarshipDetailsWrapper = () => {
-  const location = useLocation();
-  const { data } = location.state || { data: { results: [] } };
-  return <StarshipDetails data={data} />;
-}; */
+import { StarshipsProvider } from "./components/Context/StarshipsContext";
 
 
 function App() {
   return (
     <>
-    
+    <StarshipsProvider>
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Welcomepage />} />
@@ -27,7 +21,7 @@ function App() {
         </Route>
         
       </Routes>
-    
+    </StarshipsProvider>
     </>
   );
 }

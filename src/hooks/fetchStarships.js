@@ -1,17 +1,17 @@
-const BASE = 'https://swapi.dev/api/starships/?page=1'; 
+ const BASE_URL = 'https://swapi.dev/api/starships/';
 
-
-
-export async function fetchStarships() {
-    try {
-        const response = await fetch(BASE);
+    export async function fetchStarships(page = 1) {
+      try {
+        const response = await fetch(`${BASE_URL}?page=${page}`);
         if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
+          throw new Error('Network response was not ok ' + response.statusText);
         }
         const data = await response.json();
-        console.log(data)
         return data;
-    } catch (error) {
+        
+      } catch (error) {
         console.error('There has been a problem with your fetch operation:', error);
+        throw error;
+      }
+      
     }
-}

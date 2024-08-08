@@ -1,37 +1,44 @@
-import { useQuery } from '@tanstack/react-query'
-import { fetchStarships } from '../hooks/fetchStarships'
-import { useNavigate, Outlet } from 'react-router-dom'
+import React, { useContext, useEffect } from 'react';
+import { useNavigate, Outlet } from 'react-router-dom';
+import { StarshipsContext } from '../components/Context/StarshipsContext';
 
 const Starships = () => {
-    
-    const {data, isLoading, isError} = useQuery({
-            queryKey: ['starShips', 'all'],
-            queryFn:  fetchStarships,
-          })
+  const { starships, status, error, incrementPage } = useContext(StarshipsContext);
+  const navigate = useNavigate();
 
-        const navigate = useNavigate();
-    
-        if (isLoading) {
-          return <span>Loading...</span>
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight) {
+        if (status === 'succeeded' && starships.length < 36) {
+          incrementPage();
         }
-      
-        if (isError) {
-          return <span>Error: {error.message}</span>
-        }
-        
-        const handleClick = (starship) => {
-          const id = starship.url.split('/').slice(-2, -1)[0]; // Extracts the ID from the URL
-          console.log('Navigating to starship ID:', id, 'with data:', starship);
-          navigate(`/starships/${id}`, { state: { starship } });
-        }
-           
-    return ( 
-      <div className='flagships_box'>
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [status, starships.length, incrementPage]);
+
+  if (status === 'loading') {
+    return <span>Loading...</span>;
+  }
+
+  if (status === 'failed') {
+    return <span>Error: {error}</span>;
+  }
+
+  const handleClick = (starship) => {
+    const id = starship.url.split('/').slice(-2, -1)[0];
+    navigate(`/starships/${id}`, { state: { starship } });
+  };
+
+  return (
+    <div className='flagships_box'>
       <div>
-        {data.results.map((result) => (
-          <div key={result.name} className='starship_item' onClick={() => handleClick(result)}>
-            <div style={{ textTransform: 'uppercase' }}>{result.name}</div>
-            <div>{result.model}</div>
+        {starships.map((starship) => (
+          <div key={starship.name} className='starship_item' onClick={() => handleClick(starship)}>
+            <div style={{ textTransform: 'uppercase' }}>{starship.name}</div>
+            <div>{starship.model}</div>
           </div>
         ))}
       </div>
@@ -40,5 +47,4 @@ const Starships = () => {
   );
 };
 
- 
 export default Starships;

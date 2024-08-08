@@ -15,7 +15,7 @@ const Layout = () => {
         </div>
       </div>
       <div className="main_menu">
-        <Link to={"/Welcomepage"}> HOME</Link>
+        <Link to={"/"}><button className="Starship">HOME</button> </Link>
         <Link to={"/Starships "}><button className="Starship">STARSHIPS</button></Link>
       </div>
     </div>
