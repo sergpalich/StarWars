@@ -222,7 +222,7 @@ body, html {
 /* Espaciado entre el título y el botón */
 .title {
   margin-top: 150px;
-  margin-bottom: 50px; /* Espacio vertical entre el título y el botón */
+  margin-bottom: 50px; 
   font-size: 24px;
 }
 
@@ -231,4 +231,72 @@ body, html {
   padding: 10px 20px;
   font-size: 18px;
   cursor: pointer;
+}
+
+.login_reg {
+  color: white;
+}
+
+/* Estilos generales para los formularios */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  width: 300px; /* Ancho del cuadro */
+  padding: 20px;
+  margin: 200px 10px auto; /* Centrando el cuadro vertical y horizontalmente */
+  border: 2px dashed white; /* Borde blanco discontinúo */
+  /* background-color: #333;  *//* Fondo oscuro para destacar el borde blanco */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Estilo para los campos de entrada */
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc; /* Borde gris para los campos */
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+}
+
+/* Estilo para el botón */
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #808080;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3; /* Color de fondo del botón al pasar el ratón */
+}
+
+/* Estilo para las etiquetas de texto */
+label {
+  align-self: flex-start; /* Alinear etiquetas al inicio del cuadro */
+  color: white; /* Color blanco para el texto */
+}
+
+/* Estilo para el texto de enlace */
+p {
+  /* margin-top: 20px; */
+  color: white;
+  text-align: center;
+  color: white;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
