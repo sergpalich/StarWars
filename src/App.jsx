@@ -7,7 +7,9 @@ import Welcomepage from "./components/Welcomepage";
 import { StarshipsProvider } from "./components/Context/StarshipsContext";
 import LoginPage from "../src/pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-import { AuthProvider } from "../src/components/Context/AuthContext"
+import { AuthProvider } from "../src/components/Context/AuthContext";
+import PrivateRoute from "./components/PrivateRoute";
+
 
 
 
@@ -22,8 +24,14 @@ function App() {
           <Route path="Home" element={<Layout />} />
           <Route path="/loginPage" element={<LoginPage />} />
           <Route path="/registerPage" element={<RegisterPage />} />
-          <Route path="/starships" element = {<Starships/>} />
-          <Route path="/starships/:id" element= {<SinglePage />} />
+          <Route
+              path="/starships"
+              element={<PrivateRoute element={<Starships />} />}
+            />
+            <Route
+              path="/starships/:id"
+              element={<PrivateRoute element={<SinglePage />} />}
+            />
         </Route>
       </Routes>
     </StarshipsProvider>
